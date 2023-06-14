@@ -1,9 +1,18 @@
+$primay: #000033;
+$secondary: #ffcc00;
+$text: #b3d5f2;
+$accent: #ff33ff;
+
+.tabela-tamanhos-title {
+    color: $secondary;
+}
+
 .tabela-tamanhos {
     border: none;
     color: #9c9e9f;
     text-align: center;
     border-collapse: collapse;
-    font-size: .9rem;
+    font-size: 0.9rem;
     tr:nth-child(even) {
         background-color: #f6f8fa;
     }
@@ -19,7 +28,7 @@
     tr {
         th,
         td {
-            padding: .5em 1em;
+            padding: 0.5em 1em;
         }
     }
 }
