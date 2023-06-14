@@ -16,5 +16,5 @@ function labct_frontend_scripts()
     wp_enqueue_script('labct-script');
 
     wp_localize_script('labct-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
-    wp_enqueue_style('labct-style', LABCT_URL . 'assets/css/loja-abc-talk.css', array(), false, 'all');
+    wp_enqueue_style('labct-style', LABCT_URL . 'assets/css/loja-abc-talk.css', array(), '1.0.0', 'all');
 }
