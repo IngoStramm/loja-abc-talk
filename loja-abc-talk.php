@@ -32,7 +32,7 @@ require_once 'shortcode.php';
 
 require 'plugin-update-checker-4.10/plugin-update-checker.php';
 $updateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://raw.githubusercontent.com/IngoStramm/loja-abc-talk/master/info.json',
+    'https://raw.githubusercontent.com/IngoStramm/loja-abc-talk/main/info.json',
     __FILE__,
     'labct'
 );
