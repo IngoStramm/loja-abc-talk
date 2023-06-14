@@ -1,6 +1,6 @@
 {
     "name": "Loja ABC Talk",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "download_url": "https://github.com/IngoStramm/loja-abc-talk/raw/master/dist/labct.zip",
     "homepage": "https://agencialaf.com",
     "requires": "4.7",

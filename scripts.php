@@ -11,10 +11,10 @@ function labct_frontend_scripts()
         wp_enqueue_script('labct-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true);
     endif;
 
-    wp_register_script('labct-script', LABCT_URL . 'assets/js/labct' . $min . '.js', array('jquery'), '1.0.0', true);
+    wp_register_script('labct-script', LABCT_URL . 'assets/js/loja-abc-talk' . $min . '.js', array('jquery'), '1.0.0', true);
 
     wp_enqueue_script('labct-script');
 
     wp_localize_script('labct-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
-    wp_enqueue_style('labct-style', LABCT_URL . 'assets/css/labct.css', array(), false, 'all');
+    wp_enqueue_style('labct-style', LABCT_URL . 'assets/css/loja-abc-talk.css', array(), false, 'all');
 }

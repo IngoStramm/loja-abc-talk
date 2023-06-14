@@ -1,0 +1,25 @@
+.tabela-tamanhos {
+    border: none;
+    color: #9c9e9f;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: .9rem;
+    tr:nth-child(even) {
+        background-color: #f6f8fa;
+    }
+    tr:nth-child(odd) {
+        background-color: #fcfeff;
+    }
+    thead {
+        // text-transform: uppercase;
+        tr:nth-child(odd) {
+            background-color: #dddede;
+        }
+    }
+    tr {
+        th,
+        td {
+            padding: .5em 1em;
+        }
+    }
+}
