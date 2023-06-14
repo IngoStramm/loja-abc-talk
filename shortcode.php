@@ -4,6 +4,9 @@ function labct_tabela_tamanhos_shortcode($atts)
 {
     $post_id = get_the_ID();
     $tamanho_id = get_post_meta($post_id, 'labct_tamanhos', true);
+    if (!$tamanho_id) {
+        return;
+    }
     $colunas = get_post_meta($tamanho_id, 'labct_colunas', true);
     $linhas = get_post_meta($tamanho_id, 'labct_group_tamanho', true);
     $output = '';
