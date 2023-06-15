@@ -11,7 +11,7 @@ function labct_frontend_scripts()
         wp_enqueue_script('labct-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true);
     endif;
 
-    wp_register_script('labct-script', LABCT_URL . 'assets/js/loja-abc-talk' . $min . '.js', array('jquery'), '1.0.0', true);
+    wp_register_script('labct-script', LABCT_URL . 'assets/js/loja-abc-talk' . $min . '.js', array('jquery'), '1.0.1', true);
 
     wp_enqueue_script('labct-script');
 
