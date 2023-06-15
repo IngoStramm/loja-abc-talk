@@ -5,12 +5,15 @@ $accent: #ff33ff;
 
 .tabela-tamanhos-title {
     color: $secondary !important;
+    cursor: pointer;
 }
 
 .tabela-tamanhos-wrapper {
-    display: inline-block;
+    display: none;
     border: $secondary 2px solid;
     border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s;
 }
 
 .tabela-tamanhos {
@@ -40,5 +43,25 @@ $accent: #ff33ff;
     tbody tr:hover > td,
     tbody tr:hover > th {
         background-color: transparent;
+    }
+}
+
+.toggle-medidas {
+    .labct-arrow {
+        border: solid $secondary;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 3px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        line-height: 1em;
+        margin-left: 0.5em;
+    }
+    &.visible {
+        .labct-arrow {
+            transform: rotate(-135deg);
+            -webkit-transform: rotate(-135deg);
+        }
     }
 }

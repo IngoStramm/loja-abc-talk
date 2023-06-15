@@ -10,7 +10,7 @@ function labct_tabela_tamanhos_shortcode($atts)
     $colunas = get_post_meta($tamanho_id, 'labct_colunas', true);
     $linhas = get_post_meta($tamanho_id, 'labct_group_tamanho', true);
     $output = '';
-    $output .= '<h4 class="tabela-tamanhos-title">' . __('Medidas', 'labct') . '</h4>';
+    $output .= '<h4 class="tabela-tamanhos-title toggle-medidas" id="toggle-medidas">' . __('Medidas', 'labct') . '<i class="labct-arrow"></i></h4>';
     $output .= '<div class="tabela-tamanhos-wrapper">';
     $output .= '<table class="tabela-tamanhos">';
     $output .= '<thead>';
