@@ -7,28 +7,31 @@ $accent: #ff33ff;
     color: $secondary !important;
 }
 
+.tabela-tamanhos-wrapper {
+    display: inline-block;
+    border: $secondary 2px solid;
+    border-radius: 15px;
+}
+
 .tabela-tamanhos {
-    border: none;
-    color: #9c9e9f;
+    background-color: transparent;
+    color: $accent;
     text-align: center;
-    border-collapse: collapse;
     font-size: 0.9rem;
-    tr:nth-child(even) {
-        background-color: #f6f8fa;
-    }
-    tr:nth-child(odd) {
-        background-color: #fcfeff;
-    }
+    border-collapse: collapse;
     thead {
-        // text-transform: uppercase;
-        tr:nth-child(odd) {
-            background-color: #dddede;
-        }
+        color: $secondary;
+        border-bottom: $secondary 2px solid;
     }
     tr {
         th,
         td {
+            border-right: $secondary 2px solid;
             padding: 0.5em 1em;
+            // border-collapse: collapse;
+            &:last-child {
+                border-right: none;
+            }
         }
     }
 }

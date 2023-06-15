@@ -11,6 +11,7 @@ function labct_tabela_tamanhos_shortcode($atts)
     $linhas = get_post_meta($tamanho_id, 'labct_group_tamanho', true);
     $output = '';
     $output .= '<h4 class="tabela-tamanhos-title">' . __('Medidas', 'labct') . '</h4>';
+    $output .= '<div class="tabela-tamanhos-wrapper">';
     $output .= '<table class="tabela-tamanhos">';
     $output .= '<thead>';
     $output .= '<tr>';
@@ -32,6 +33,7 @@ function labct_tabela_tamanhos_shortcode($atts)
     }
     $output .= '</tbody>';
     $output .= '</table>';
+    $output .= '</div>';
     return $output;
 }
 
