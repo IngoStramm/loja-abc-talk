@@ -19,6 +19,7 @@ $accent: #ff33ff;
     text-align: center;
     font-size: 0.9rem;
     border-collapse: collapse;
+    margin-bottom: 0;
     thead {
         color: $secondary;
         border-bottom: $secondary 2px solid;
@@ -28,10 +29,17 @@ $accent: #ff33ff;
         td {
             border-right: $secondary 2px solid;
             padding: 0.5em 1em;
-            // border-collapse: collapse;
+            border: none;
             &:last-child {
                 border-right: none;
             }
+        }
+    }
+    tbody > tr:nth-child(odd) > td,
+    tbody > tr:nth-child(odd) > th {
+        background-color: transparent;
+        &:hover {
+            background-color: transparent;
         }
     }
 }
