@@ -27,9 +27,9 @@ $accent: #ff33ff;
     tr {
         th,
         td {
+            border: none;
             border-right: $secondary 2px solid;
             padding: 0.5em 1em;
-            border: none;
             &:last-child {
                 border-right: none;
             }
