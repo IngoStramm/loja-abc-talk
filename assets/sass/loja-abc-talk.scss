@@ -36,10 +36,9 @@ $accent: #ff33ff;
         }
     }
     tbody > tr:nth-child(odd) > td,
-    tbody > tr:nth-child(odd) > th {
+    tbody > tr:nth-child(odd) > th,
+    table tbody tr:hover > td,
+    table tbody tr:hover > th {
         background-color: transparent;
-        &:hover {
-            background-color: transparent;
-        }
     }
 }
