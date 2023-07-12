@@ -502,6 +502,7 @@ font-size: 10px !important;
     }
 }
 
+// Limita um fabricante por pedido
 add_filter('woocommerce_add_to_cart_validation', 'labct_limit_one_per_order', 10, 2);
 function labct_limit_one_per_order($passed_validation, $product_id)
 {
@@ -519,14 +520,19 @@ function labct_limit_one_per_order($passed_validation, $product_id)
         $fabricantes_in_cart_arr[] = $fabricante_cart;
     }
 
-    if (in_array($to_add_product_fabricante, $fabricantes_in_cart_arr)) {
-        wc_add_notice(__('Não é possível comprar de parceiros diferentes em um mesmo carrinho pois cada parceiro envia o produto para sua casa de forma individual. Você pode realizar outra compra após esta!', 'labct'), 'error');
-        return false;
+    $fabricantes_in_cart_arr = array_unique($fabricantes_in_cart_arr);
+
+    foreach ($fabricantes_in_cart_arr as $item_id) {
+        if ($to_add_product_fabricante !== $item_id) {
+            wc_add_notice(__('Não é possível comprar de parceiros diferentes em um mesmo carrinho pois cada parceiro envia o produto para sua casa de forma individual. Você pode realizar outra compra após esta!', 'labct'), 'error');
+            return false;
+        }
     }
 
     return $passed_validation;
 }
 
+// Catálogo
 add_filter('woocommerce_loop_add_to_cart_link', 'labct_before_after_btn', 10, 3);
 
 function labct_before_after_btn($add_to_cart_html, $product, $args)
@@ -537,7 +543,7 @@ function labct_before_after_btn($add_to_cart_html, $product, $args)
     }
 
     $after = '
-    <div div class="jet-woo-product-tags">
+    <div div class="labct-fabricante labct-fabricante-catalogo">
         <ul>
             <li>' . get_the_title($fabricante_id) . '</li>
         </ul>
@@ -547,14 +553,19 @@ function labct_before_after_btn($add_to_cart_html, $product, $args)
     return $add_to_cart_html . $after;
 }
 
+// Página do produto
 add_action('woocommerce_after_add_to_cart_button', 'labct_after_add_to_cart_btn');
 
 function labct_after_add_to_cart_btn()
 {
     $product_id = get_the_ID();
     $fabricante_id = get_post_meta($product_id, 'labct_fabricante', true);
+    if (!$fabricante_id) {
+        return;
+    }
+
     echo '
-    <div div class="jet-woo-product-tags">
+    <div div class="labct-fabricante labct-fabricante-produto">
         <ul>
             <li>' . get_the_title($fabricante_id) . '</li>
         </ul>

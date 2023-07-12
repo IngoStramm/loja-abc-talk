@@ -4,7 +4,7 @@
  * Plugin Name: Loja ABC Talk
  * Plugin URI: https://agencialaf.com
  * Description: Descrição do Loja ABC Talk.
- * Version: 0.0.16
+ * Version: 0.0.17
  * Author: Ingo Stramm
  * Text Domain: labct
  * License: GPLv2

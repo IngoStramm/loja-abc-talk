@@ -15,7 +15,7 @@ function labct_register_product_metabox()
         'name'       => esc_html__('Selecione o fabricante', 'labct'),
         'id'         => 'labct_fabricante',
         'type'             => 'select',
-        'show_option_none' => true,
+        'show_option_none' => false,
         'options'          => function () {
             $fabricantes = get_posts(array(
                 'numberposts'   => -1,
