@@ -515,12 +515,16 @@ function labct_limit_one_per_order($passed_validation, $product_id)
     $fabricantes_in_cart_arr = [];
 
     foreach ($products_in_cart as $item => $values) {
-        $product_in_cart_id =  $values['data']->get_id();
+        $product_in_cart_id =  $values['product_id'];
+        // labct_debug($product_in_cart_id);
         $fabricante_cart = get_post_meta($product_in_cart_id, 'labct_fabricante', true);
         $fabricantes_in_cart_arr[] = $fabricante_cart;
     }
 
-    $fabricantes_in_cart_arr = array_unique($fabricantes_in_cart_arr);
+    // $fabricantes_in_cart_arr = array_unique($fabricantes_in_cart_arr);
+    
+        // labct_debug($to_add_product_fabricante);
+        // labct_debug($fabricantes_in_cart_arr);
 
     foreach ($fabricantes_in_cart_arr as $item_id) {
         if ($to_add_product_fabricante !== $item_id) {

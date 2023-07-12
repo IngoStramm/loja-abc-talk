@@ -73,6 +73,9 @@ $accent: #ff33ff;
     &.labct-fabricante-catálogo {
         text-align: center;
     }
+    &.labct-fabricante-produto {
+        color: $secondary;
+    }
 }
 
 .labct-fabricante ul {
