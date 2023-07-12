@@ -501,3 +501,63 @@ font-size: 10px !important;
         );
     }
 }
+
+add_filter('woocommerce_add_to_cart_validation', 'labct_limit_one_per_order', 10, 2);
+function labct_limit_one_per_order($passed_validation, $product_id)
+{
+    $to_add_product_fabricante = get_post_meta($product_id, 'labct_fabricante', true);
+    if (!$to_add_product_fabricante) {
+        return $passed_validation;
+    }
+
+    $products_in_cart = WC()->cart->get_cart();
+    $fabricantes_in_cart_arr = [];
+
+    foreach ($products_in_cart as $item => $values) {
+        $product_in_cart_id =  $values['data']->get_id();
+        $fabricante_cart = get_post_meta($product_in_cart_id, 'labct_fabricante', true);
+        $fabricantes_in_cart_arr[] = $fabricante_cart;
+    }
+
+    if (in_array($to_add_product_fabricante, $fabricantes_in_cart_arr)) {
+        wc_add_notice(__('Não é possível comprar de parceiros diferentes em um mesmo carrinho pois cada parceiro envia o produto para sua casa de forma individual. Você pode realizar outra compra após esta!', 'labct'), 'error');
+        return false;
+    }
+
+    return $passed_validation;
+}
+
+add_filter('woocommerce_loop_add_to_cart_link', 'labct_before_after_btn', 10, 3);
+
+function labct_before_after_btn($add_to_cart_html, $product, $args)
+{
+    $fabricante_id = get_post_meta($product->id, 'labct_fabricante', true);
+    if (!$fabricante_id) {
+        return $add_to_cart_html;
+    }
+
+    $after = '
+    <div div class="jet-woo-product-tags">
+        <ul>
+            <li>' . get_the_title($fabricante_id) . '</li>
+        </ul>
+    </div>
+    ';
+
+    return $add_to_cart_html . $after;
+}
+
+add_action('woocommerce_after_add_to_cart_button', 'labct_after_add_to_cart_btn');
+
+function labct_after_add_to_cart_btn()
+{
+    $product_id = get_the_ID();
+    $fabricante_id = get_post_meta($product_id, 'labct_fabricante', true);
+    echo '
+    <div div class="jet-woo-product-tags">
+        <ul>
+            <li>' . get_the_title($fabricante_id) . '</li>
+        </ul>
+    </div>
+    ';
+}
